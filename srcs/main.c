@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:39:40 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/29 21:42:54 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/30 01:25:48 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,14 @@ int	main(int ac, char **av)
 {
 	t_psnode	*head;
 	t_psstack	*a;
-	t_psstack	*b;
 	t_error		err;
 
 	if (ac < 2)
 		exit(1);
-	err = input_check1(ac, av);
-	head = NULL;
-	if (err == ERR_OK)
-		err = parse_input(ac, av, &head);
-	if (err == ERR_OK)
-		print_list(head);
-	(void)a;
-	(void)b;
+	err = process_input(ac, av, &head);
 	if (err != ERR_OK)
 		handle_error(err);
+	(void)a;
 	ft_printf("SUCCESS\n");
 	return (0);
 }

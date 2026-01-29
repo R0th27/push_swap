@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:36:15 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/29 21:44:04 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/30 01:28:35 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ typedef enum e_error
 {
 	ERR_OK,
 	ERR_INVALID_INPUT,
-	ERR_OVERFLOW_POTENTIAL,
 	ERR_OVERFLOW_INPUT,
 	ERR_DUPLICATE_INPUT,
 	ERR_SORTED,
@@ -43,18 +42,11 @@ typedef struct s_psstack
 	int				size;	
 }	t_psstack;
 
-//input_check_parse_check
-t_error		input_check1(int ac, char **av);
-t_error		parse_input(int ac, char **av, t_psnode **head);
+//input processing
+t_error		process_input(int ac, char **av, t_psnode **head);
 int			ps_atoi_strict(char *str, t_error *err);
 
-//error_handling
+//Centralized Error Handling
 void		handle_error(t_error err);
-
-//nodes_creation_stack_init
-t_error		add_psnode(int num, t_psnode **head);
-
-//printing during implementation
-void		print_list(t_psnode *head);
 
 #endif
