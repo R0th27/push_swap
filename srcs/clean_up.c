@@ -1,33 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   clean_up.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/27 11:39:40 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 02:14:09 by htoe             ###   ########.fr       */
+/*   Created: 2026/01/30 02:35:16 by htoe              #+#    #+#             */
+/*   Updated: 2026/01/30 02:35:41 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
 
-int	main(int ac, char **av)
+void	free_psnode(t_psnode **head)
 {
-	t_psnode	*head;
-	t_psstack	*a;
-	t_error		err;
+	t_psnode	*temp;
+	t_psnode	*current;
 
-	if (ac < 2)
-		exit(1);
-	head = NULL;
-	err = process_input(ac, av, &head);
-	print_list(head);
-	free_psnode(&head);
-	if (err != ERR_OK)
-		handle_error(err);
-	(void)a;
-	ft_printf("SUCCESS\n");
-	return (0);
+	if (!head)
+		return ;
+	current = *head;
+	while (current)
+	{
+		temp = current;
+		current = current -> next;
+		free(temp);
+	}
+	*head = NULL;
+}
+
+void	free_ps_split(char **arr)
+{
+	int	i;
+
+	if (!arr)
+		return ;
+	i = 0;
+	while (arr[i])
+		free(arr[i++]);
+	free(arr);
 }
