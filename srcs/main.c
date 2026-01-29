@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:39:40 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/29 18:52:53 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/29 20:02:08 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ int	main(int ac, char **av)
 	if (ac < 2)
 		exit(1);
 	err = input_check1(ac, av);
-	(void)head;
+	head = NULL;
+	if (err == ERR_OK)
+		err = parse_input(ac, av, &head);
 	(void)a;
 	(void)b;
 	if (err != ERR_OK)

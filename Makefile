@@ -6,7 +6,7 @@
 #    By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/27 11:42:39 by htoe              #+#    #+#              #
-#    Updated: 2026/01/29 18:51:14 by htoe             ###   ########.fr        #
+#    Updated: 2026/01/29 19:02:07 by htoe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,6 @@ LIBS = libft/libft.a
 #Pattern Rules
 
 ${OBJDIR}/%.o: ${SRCDIR}/%.c Makefile
-	@echo "COMPILING OBJECTS"
 	@mkdir -p ${dir $@}
 	@${CC} ${CFLAGS} ${CINCLUDE} -c $< -o $@
 
@@ -42,6 +41,7 @@ ${LIBS}:
 	@make -s -C libft
 
 ${NAME}: Makefile ${OBJS} ${LIBS}
+	@echo "COMPILING OBJECTS"
 	@echo "LINKING OBJECTS"
 	@${CC} ${OBJS} ${LIBFLAGS} -o ${NAME}
 	@echo "FINISHED"
@@ -51,11 +51,11 @@ all: ${NAME}
 clean:
 	@echo "CLEANING"
 	@${RM} ${OBJDIR}
-	@make clean -s -C libft
+#	@make clean -s -C libft
 
 fclean: clean
 	@${RM} ${NAME}
-	@make fclean -s -C libft
+#	@make fclean -s -C libft
 
 re: fclean all
 
