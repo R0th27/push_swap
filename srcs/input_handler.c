@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 20:59:43 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 02:38:38 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/30 03:45:32 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,12 @@ void	handle_error(t_error err)
 	else if (err == ERR_OVERFLOW_INPUT)
 		ft_putstr_fd("Overflow int\n", 2);
 	else if (err == ERR_DUPLICATE_INPUT)
-		ft_putstr_fd("duplicate int\n", 2);
+		ft_putstr_fd("Duplicate int\n", 2);
+	else if (err == ERR_ONE_INPUT)
+		ft_putstr_fd("Only one input\n", 2);
 	else if (err == ERR_SORTED)
 		ft_putstr_fd("Sorted array\n", 2);
-	if (err != ERR_OK || err != ERR_SORTED)
+	if (err != ERR_OK && err != ERR_SORTED && err != ERR_ONE_INPUT)
 	{
 		ft_putstr_fd("Error\n", 2);
 		exit(1);
@@ -76,10 +78,10 @@ t_error	process_input2(char *str, t_psnode **head)
 	{
 		num = ps_atoi_strict(arr[i], &err);
 		if (err != ERR_OK)
-			return (free_ps_split(arr), free_psnode(head), err);
-		err = add_psnode(num, head);
+			return (free_ps_split(arr), free_ps_node(head), err);
+		err = add_ps_node(num, head);
 		if (err != ERR_OK)
-			return (free_ps_split(arr), free_psnode(head), err);
+			return (free_ps_split(arr), free_ps_node(head), err);
 	}
 	return (free_ps_split(arr), ERR_OK);
 }
@@ -98,10 +100,10 @@ t_error	process_input(int ac, char **av, t_psnode **head)
 	{
 		num = ps_atoi_strict(av[i], &err);
 		if (err != ERR_OK)
-			return (free_psnode(head), err);
-		err = add_psnode(num, head);
+			return (free_ps_node(head), err);
+		err = add_ps_node(num, head);
 		if (err != ERR_OK)
-			return (free_psnode(head), err);
+			return (free_ps_node(head), err);
 	}
 	return (ERR_OK);
 }

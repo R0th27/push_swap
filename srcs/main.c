@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:39:40 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 02:14:09 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/30 03:51:09 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,22 @@ int	main(int ac, char **av)
 {
 	t_psnode	*head;
 	t_psstack	*a;
+	t_psstack	*b;
 	t_error		err;
 
 	if (ac < 2)
 		exit(1);
+	a = NULL;
+	b = NULL;
 	head = NULL;
 	err = process_input(ac, av, &head);
+	if (err == ERR_OK)
+		err = stacks_initialize(&a, &b, head);
+	if (err == ERR_OK)
+		err = indexing_list(a, head);
+	print_stack(a, b);
 	print_list(head);
-	free_psnode(&head);
-	if (err != ERR_OK)
+	if (err != ERR_OK && err != ERR_ONE_INPUT && err != ERR_SORTED)
 		handle_error(err);
-	(void)a;
-	ft_printf("SUCCESS\n");
-	return (0);
+	return (free_ps_node(&head), free(a), free(b), 0);
 }
