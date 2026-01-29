@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   stack_initiator.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/27 11:39:40 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/29 21:42:54 by htoe             ###   ########.fr       */
+/*   Created: 2026/01/29 21:17:34 by htoe              #+#    #+#             */
+/*   Updated: 2026/01/29 22:06:37 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
 
-int	main(int ac, char **av)
+t_error	add_psnode(int num, t_psnode **head)
 {
-	t_psnode	*head;
-	t_psstack	*a;
-	t_psstack	*b;
-	t_error		err;
+	t_psnode	*node;
+	t_psnode	*tail;
 
-	if (ac < 2)
-		exit(1);
-	err = input_check1(ac, av);
-	head = NULL;
-	if (err == ERR_OK)
-		err = parse_input(ac, av, &head);
-	if (err == ERR_OK)
-		print_list(head);
-	(void)a;
-	(void)b;
-	if (err != ERR_OK)
-		handle_error(err);
-	ft_printf("SUCCESS\n");
-	return (0);
+	node = (t_psnode *)malloc(sizeof(t_psnode));
+	if (!node)
+		return (ERR_MALLOC);
+	node -> val = num;
+	node -> index = -1;
+	node -> next = NULL;
+	node -> prev = NULL;
+	if (*head == NULL)
+	{
+		*head = node;
+		return (ERR_OK);
+	}
+	tail = *head;
+	while (tail -> next)
+		tail = tail -> next;
+	tail -> next = node;
+	node -> prev = tail;
+	return (ERR_OK);
 }

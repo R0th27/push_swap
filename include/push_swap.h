@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:36:15 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/29 20:46:39 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/29 21:44:04 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,11 @@ int			ps_atoi_strict(char *str, t_error *err);
 
 //error_handling
 void		handle_error(t_error err);
+
+//nodes_creation_stack_init
+t_error		add_psnode(int num, t_psnode **head);
+
+//printing during implementation
+void		print_list(t_psnode *head);
 
 #endif

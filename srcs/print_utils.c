@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   print_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/27 11:39:40 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/29 21:42:54 by htoe             ###   ########.fr       */
+/*   Created: 2026/01/29 21:44:10 by htoe              #+#    #+#             */
+/*   Updated: 2026/01/29 21:53:02 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
 
-int	main(int ac, char **av)
+void	print_list(t_psnode *head)
 {
-	t_psnode	*head;
-	t_psstack	*a;
-	t_psstack	*b;
-	t_error		err;
-
-	if (ac < 2)
-		exit(1);
-	err = input_check1(ac, av);
-	head = NULL;
-	if (err == ERR_OK)
-		err = parse_input(ac, av, &head);
-	if (err == ERR_OK)
-		print_list(head);
-	(void)a;
-	(void)b;
-	if (err != ERR_OK)
-		handle_error(err);
-	ft_printf("SUCCESS\n");
-	return (0);
+	if (!head)
+		return ;
+	while (head)
+	{
+		printf("[%p]", head);
+		printf("  ");
+		if (!head -> prev)
+			printf("         ");
+		printf("[%p]", head -> prev);
+		printf("  ");
+		printf("[%d]", head -> val);
+		printf("  ");
+		printf("[%d]", head -> index);
+		printf("  ");
+		printf("[%p]", head -> next);
+		printf("\n");
+		head = head -> next;
+	}
 }

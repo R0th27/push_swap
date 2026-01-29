@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 20:59:43 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/29 21:00:15 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/29 22:02:29 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@
 void	handle_error(t_error err)
 {
 	if (err != ERR_OK)
+	{
 		ft_putstr_fd("Error\n", 2);
-	exit(1);
+		exit(1);	
+	}
 }
 
 t_error	input_check1(int ac, char **av)
@@ -59,9 +61,10 @@ int	ps_atoi_strict(char *str, t_error *err)
 	while (str[i] >= '0' && str[i] <= '9')
 		num = (num * 10) + (str[i++] - '0');
 	if ((sign == 1 && num > INT_MAX) || (sign == -1 && -(num) < INT_MIN))
+	{
 		*err = ERR_OVERFLOW_INPUT;
-	else
-		*err = ERR_OK;
+		return (0);
+	}
 	return (sign * num);
 }
 
@@ -72,13 +75,15 @@ t_error	parse_input(int ac, char **av, t_psnode **head)
 	t_error	err;
 
 	i = 0;
+	err = ERR_OK;
 	while (++i < ac)
 	{
 		num = ps_atoi_strict(av[i], &err);
 		if (err != ERR_OK)
 			return (err);
-		printf("num: %d\n", num);
+		err = add_psnode(num, head);
+		if (err != ERR_OK)
+			return (err);
 	}
-	(void)head;
 	return (ERR_OK);
 }
