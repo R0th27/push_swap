@@ -6,7 +6,7 @@
 #    By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/27 11:42:39 by htoe              #+#    #+#              #
-#    Updated: 2026/01/30 12:50:02 by htoe             ###   ########.fr        #
+#    Updated: 2026/01/30 13:51:55 by htoe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 .DEFAULT_GOAL := all
 
 #Compilation & Commands
-NAME1 = a.out
+NAME1 = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror 
 CINCLUDE = -Iinclude -Ilibft/include
@@ -58,11 +58,11 @@ all: ${NAME1}
 clean:
 	@echo "CLEANING"
 	@${RM} ${OBJDIR}
-#	@make clean -s -C libft
+	@make clean -s -C libft
 
 fclean: clean
 	@${RM} ${NAME1}
-#	@make fclean -s -C libft
+	@make fclean -s -C libft
 
 re: fclean all
 
