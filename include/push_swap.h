@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:36:15 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 08:08:52 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/30 10:14:49 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,6 @@ void		ops_pb(t_psstack *from, t_psstack *to, int silent);
 //testing
 void		print_list(t_psnode *head);
 void		print_stack(t_psstack *a, t_psstack *b);
+void		print_pointer(t_psstack *a, void **ptr);
 
 #endif

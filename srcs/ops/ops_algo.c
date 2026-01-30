@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 06:25:56 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 08:05:22 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/30 09:55:14 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,6 @@
 
 void	push_swap(t_psstack *a, t_psstack *b)
 {
+	(void)a;
 	(void)b;
-	print_list(a -> top);
-	print_list(b -> top);
-	ops_pb(a, b, 0);
-	print_list(a -> top);
-	print_list(b -> top);
-	ops_pb(a, b, 0);
-	print_list(a -> top);
-	print_list(b -> top);
-	ops_pb(a, b, 0);
-	print_list(a -> top);
-	print_list(b -> top);
 }

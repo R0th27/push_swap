@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 20:59:43 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 07:09:00 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/30 09:49:34 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	handle_error(t_error err)
 		ft_putstr_fd("Only one input\n", 2);
 	else if (err == ERR_SORTED)
 		ft_putstr_fd("Sorted array\n", 2);
-	if (err != ERR_OK && err != ERR_SORTED && err != ERR_ONE_INPUT)
+	if (err != ERR_OK && err != ERR_SORTED && err != ERR_ONE_INPUT
+		&& err != ERR_DUPLICATE_INPUT)
 	{
 		ft_putstr_fd("Error\n", 2);
 		exit(1);
