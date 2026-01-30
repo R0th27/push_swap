@@ -6,12 +6,23 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 03:42:42 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 10:49:09 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/30 13:44:09 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
+
+static int	check_sorted(t_psnode *head)
+{
+	while (head && head -> next)
+	{
+		if (head -> val > head -> next -> val)
+			return (0);
+		head = head -> next;
+	}
+	return (1);
+}
 
 static void	ps_merge(void **ptr1, void **ptr2, int left, int right)
 {

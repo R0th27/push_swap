@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:39:40 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 10:14:12 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/30 13:44:43 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ int	main(int ac, char **av)
 	if (err != ERR_OK)
 		handle_error(err);
 	head = a -> top;
+	print_list(head);
 	return (free_ps_node(&head), free(a), free(b), 0);
 }

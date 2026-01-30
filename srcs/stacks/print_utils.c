@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 21:44:10 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 10:12:28 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/30 13:43:55 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,28 @@ void	print_pointer(t_psstack *a, void **ptr)
 		printf("[%d] [%d] at [%p]\n", node -> index, node -> val, node);
 	}
 	printf("\n");
+}
+
+void	print_status(t_psstack *a, t_psstack *b)
+{
+	t_psnode	*heada;
+	t_psnode	*headb;
+
+	heada = a -> top;
+	headb = b -> top;
+	printf("############### STACK TRACK ###############\n");
+	printf("STACK A\n");
+	while (heada)
+	{
+		printf("[%d] ", heada -> val);
+		heada = heada -> next;
+	}
+	printf("\n\n");
+	printf("STACK B\n");
+	while (headb)
+	{
+		printf("[%d] ", headb -> val);
+		headb = headb -> next;
+	}
+	printf("\n\n");
 }

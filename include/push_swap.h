@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:36:15 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 10:14:49 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/30 13:44:22 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ void		free_ps_split(char **arr);
 
 //duplicate+alredy sorted checking and indexing;
 t_error		indexing_list(t_psstack *a, t_psnode *head);
-int			check_sorted(t_psnode *head);
 
 //Centralized Error Handling;
 void		handle_error(t_error err);
@@ -77,5 +76,6 @@ void		ops_pb(t_psstack *from, t_psstack *to, int silent);
 void		print_list(t_psnode *head);
 void		print_stack(t_psstack *a, t_psstack *b);
 void		print_pointer(t_psstack *a, void **ptr);
+void		print_status(t_psstack *a, t_psstack *b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 07:10:32 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 08:10:33 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/30 11:30:11 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void	push(t_psstack *from, t_psstack *to)
 	else
 		from -> bottom = NULL;
 	from -> size--;
+	node -> prev = NULL;
 	node -> next = to -> top;
 	if (to -> top)
 		to -> top -> prev = node;
