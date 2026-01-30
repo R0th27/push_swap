@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:36:15 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 03:52:19 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/30 08:08:52 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ typedef struct s_psstack
 
 //input processing;
 t_error		process_input(int ac, char **av, t_psnode **head);
-t_error		process_input2(char *str, t_psnode **head);
-int			ps_atoi_strict(char *str, t_error *err);
 
 //create+free nodes and stacks;
 t_error		add_ps_node(int num, t_psnode **head);
@@ -60,6 +58,20 @@ int			check_sorted(t_psnode *head);
 
 //Centralized Error Handling;
 void		handle_error(t_error err);
+
+//Ops
+void		push_swap(t_psstack *a, t_psstack *b);
+void		ops_sa(t_psstack *a, int silent);
+void		ops_sb(t_psstack *b, int silent);
+void		ops_ss(t_psstack *a, t_psstack *b, int silent);
+void		ops_ra(t_psstack *a, int silent);
+void		ops_rb(t_psstack *b, int silent);
+void		ops_rr(t_psstack *a, t_psstack *b, int silent);
+void		ops_rra(t_psstack *a, int silent);
+void		ops_rrb(t_psstack *b, int silent);
+void		ops_rrr(t_psstack *a, t_psstack *b, int silent);
+void		ops_pa(t_psstack *from, t_psstack *to, int silent);
+void		ops_pb(t_psstack *from, t_psstack *to, int silent);
 
 //testing
 void		print_list(t_psnode *head);

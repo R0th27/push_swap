@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:39:40 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 03:51:09 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/30 07:29:10 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,10 @@ int	main(int ac, char **av)
 		err = stacks_initialize(&a, &b, head);
 	if (err == ERR_OK)
 		err = indexing_list(a, head);
-	print_stack(a, b);
-	print_list(head);
+	if (err == ERR_OK)
+		push_swap(a, b);
 	if (err != ERR_OK && err != ERR_ONE_INPUT && err != ERR_SORTED)
 		handle_error(err);
+	head = a -> top;
 	return (free_ps_node(&head), free(a), free(b), 0);
 }

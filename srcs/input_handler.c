@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 20:59:43 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 03:45:32 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/30 07:09:00 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	handle_error(t_error err)
 	}
 }
 
-int	ps_atoi_strict(char *str, t_error *err)
+static int	ps_atoi_strict(char *str, t_error *err)
 {
 	int		i;
 	long	num;
@@ -58,7 +58,7 @@ int	ps_atoi_strict(char *str, t_error *err)
 	return (*err = ERR_OK, sign * num);
 }
 
-t_error	process_input2(char *str, t_psnode **head)
+static t_error	process_input2(char *str, t_psnode **head)
 {
 	char	**arr;
 	int		size;
