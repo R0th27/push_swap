@@ -6,7 +6,7 @@
 #    By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/27 11:42:39 by htoe              #+#    #+#              #
-#    Updated: 2026/01/29 19:02:07 by htoe             ###   ########.fr        #
+#    Updated: 2026/01/30 08:43:49 by htoe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 .DEFAULT_GOAL := all
 
 #Compilation & Commands
-NAME = a.out
+NAME1 = a.out
 CC = cc
 CFLAGS = -Wall -Wextra -Werror 
 CINCLUDE = -Iinclude -Ilibft/include
@@ -24,10 +24,17 @@ RM = rm -Rf
 #Directories
 SRCDIR = srcs
 OBJDIR = objs
+OPS = ops
+STACKS = stacks
+PS = main
+CHECKERDIR = checker
 
 #Sources
-SRCS = ${wildcard ${SRCDIR}/*.c}
-OBJS = ${SRCS:${SRCDIR}/%.c=${OBJDIR}/%.o}
+PS_SRCS = \
+	${wildcard ${SRCDIR}/${OPS}/*.c} \
+	${wildcard ${SRCDIR}/${STACKS}/*c} \
+	${wildcard ${SRCDIR}/${PS}/*c}
+PS_OBJS = ${PS_SRCS:${SRCDIR}/%.c=${OBJDIR}/%.o}
 LIBS = libft/libft.a
 
 #Pattern Rules
@@ -40,13 +47,13 @@ ${LIBS}:
 	@echo "COMPILING LIBFT"
 	@make -s -C libft
 
-${NAME}: Makefile ${OBJS} ${LIBS}
+${NAME1}: Makefile ${PS_OBJS} ${LIBS}
 	@echo "COMPILING OBJECTS"
 	@echo "LINKING OBJECTS"
-	@${CC} ${OBJS} ${LIBFLAGS} -o ${NAME}
+	@${CC} ${PS_OBJS} ${LIBFLAGS} -o ${NAME1}
 	@echo "FINISHED"
 
-all: ${NAME}
+all: ${NAME1}
 
 clean:
 	@echo "CLEANING"
@@ -54,7 +61,7 @@ clean:
 #	@make clean -s -C libft
 
 fclean: clean
-	@${RM} ${NAME}
+	@${RM} ${NAME1}
 #	@make fclean -s -C libft
 
 re: fclean all
