@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 14:58:54 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 22:00:25 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/30 22:03:44 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int	main(int ac, char **av)
 	t_error		err;
 
 	if (ac < 2)
-		exit(1);
+		return (0);
 	a = NULL;
 	b = NULL;
 	head = NULL;
