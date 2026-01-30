@@ -6,7 +6,7 @@
 #    By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/27 11:42:39 by htoe              #+#    #+#              #
-#    Updated: 2026/01/30 13:51:55 by htoe             ###   ########.fr        #
+#    Updated: 2026/01/30 15:13:38 by htoe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@
 
 #Compilation & Commands
 NAME1 = push_swap
+NAME2 = checker
 CC = cc
 CFLAGS = -Wall -Wextra -Werror 
 CINCLUDE = -Iinclude -Ilibft/include
@@ -27,14 +28,19 @@ OBJDIR = objs
 OPS = ops
 STACKS = stacks
 PS = main
-CHECKERDIR = checker
+CHECKER = checker
 
 #Sources
 PS_SRCS = \
 	${wildcard ${SRCDIR}/${OPS}/*.c} \
 	${wildcard ${SRCDIR}/${STACKS}/*c} \
-	${wildcard ${SRCDIR}/${PS}/*c}
+	${wildcard ${SRCDIR}/${PS}/*.c}
+CHCK_SRCS = \
+	${wildcard ${SRCDIR}/${CHECKER}/*.c} \
+	${wildcard ${SRCDIR}/${OPS}/*.c} \
+	${wildcard ${SRCDIR}/${STACKS}/*.c}
 PS_OBJS = ${PS_SRCS:${SRCDIR}/%.c=${OBJDIR}/%.o}
+CHCK_OBJS = ${CHCK_SRCS:${SRCDIR}/%.c=${OBJDIR}/%.o}
 LIBS = libft/libft.a
 
 #Pattern Rules
@@ -48,12 +54,18 @@ ${LIBS}:
 	@make -s -C libft
 
 ${NAME1}: Makefile ${PS_OBJS} ${LIBS}
-	@echo "COMPILING OBJECTS"
-	@echo "LINKING OBJECTS"
+	@echo "COMPILING PUSH_SWAP"
+	@echo "LINKING PUSH_SWAP"
 	@${CC} ${PS_OBJS} ${LIBFLAGS} -o ${NAME1}
 	@echo "FINISHED"
 
-all: ${NAME1}
+${NAME2}: Makefile ${CHCK_OBJS} ${LIBS}
+	@echo "COMPILING CHECKER"
+	@echo "LINKING CHECKER"
+	@${CC} ${CHCK_OBJS} ${LIBFLAGS} -o ${NAME2}
+	@echo "FINISHED"
+	
+all: ${NAME1} ${NAME2}
 
 clean:
 	@echo "CLEANING"
@@ -62,6 +74,7 @@ clean:
 
 fclean: clean
 	@${RM} ${NAME1}
+	@${RM} ${NAME2}
 	@make fclean -s -C libft
 
 re: fclean all

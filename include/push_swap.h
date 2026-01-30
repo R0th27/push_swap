@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:36:15 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 13:51:37 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/30 21:58:27 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ typedef enum e_error
 	ERR_ONE_INPUT,
 	ERR_DUPLICATE_INPUT,
 	ERR_SORTED,
+	ERR_INVALID_OPS,
+	ERR_ENTER_ONLY,
 	ERR_MALLOC
 }	t_error;
 
@@ -54,9 +56,7 @@ void		free_ps_split(char **arr);
 
 //duplicate+alredy sorted checking and indexing;
 t_error		indexing_list(t_psstack *a, t_psnode *head);
-
-//Centralized Error Handling;
-void		handle_error(t_error err);
+int			check_sorted(t_psnode *head);
 
 //Algorithm
 void		push_swap(t_psstack *a, t_psstack *b);
@@ -73,5 +73,11 @@ void		ops_rrb(t_psstack *b, int silent);
 void		ops_rrr(t_psstack *a, t_psstack *b, int silent);
 void		ops_pa(t_psstack *from, t_psstack *to, int silent);
 void		ops_pb(t_psstack *from, t_psstack *to, int silent);
+
+//testing
+void		print_list(t_psnode *head);
+void		print_stack(t_psstack *a, t_psstack *b);
+void		print_pointer(t_psstack *a, void **ptr);
+void		print_status(t_psstack *a, t_psstack *b);
 
 #endif

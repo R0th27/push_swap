@@ -6,12 +6,20 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:39:40 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 13:49:37 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/30 21:38:20 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
+
+static void	handle_error(t_error err)
+{
+	if (err != ERR_OK && err != ERR_SORTED && err != ERR_ONE_INPUT)
+		ft_putstr_fd("Error\n", 2);
+	if (err == ERR_INVALID_INPUT || err == ERR_OVERFLOW_INPUT)
+		exit(1);
+}
 
 int	main(int ac, char **av)
 {

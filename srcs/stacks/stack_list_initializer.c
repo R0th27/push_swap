@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 21:17:34 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 13:58:55 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/30 15:16:52 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_error	stacks_initialize(t_psstack **a, t_psstack **b, t_psnode *head)
 		return (ERR_MALLOC);
 	*b = (t_psstack *)malloc(sizeof(t_psstack));
 	if (!*b)
-		return (ERR_MALLOC);
+		return (free(a), ERR_MALLOC);
 	(*b)-> top = NULL;
 	(*b)-> bottom = NULL;
 	(*b)-> size = 0;

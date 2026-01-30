@@ -6,14 +6,14 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 03:42:42 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 13:44:09 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/30 14:55:43 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
 
-static int	check_sorted(t_psnode *head)
+int	check_sorted(t_psnode *head)
 {
 	while (head && head -> next)
 	{

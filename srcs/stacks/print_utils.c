@@ -6,12 +6,13 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 21:44:10 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 13:43:55 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/30 15:15:33 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
+#include <stdio.h>
 
 void	print_list(t_psnode *head)
 {

@@ -6,22 +6,12 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 20:59:43 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 13:59:06 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/30 14:53:00 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
-
-void	handle_error(t_error err)
-{
-	if (err != ERR_OK && err != ERR_SORTED && err != ERR_ONE_INPUT
-		&& err != ERR_DUPLICATE_INPUT)
-	{
-		ft_putstr_fd("Error\n", 2);
-		exit(1);
-	}
-}
 
 static int	ps_atoi_strict(char *str, t_error *err)
 {
