@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_initiator.c                                  :+:      :+:    :+:   */
+/*   stack_list_initializer.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 21:17:34 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 03:24:07 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/30 13:58:55 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_error	stacks_initialize(t_psstack **a, t_psstack **b, t_psnode *head)
 	if (!*a)
 		return (ERR_MALLOC);
 	*b = (t_psstack *)malloc(sizeof(t_psstack));
-	if (!b)
+	if (!*b)
 		return (ERR_MALLOC);
 	(*b)-> top = NULL;
 	(*b)-> bottom = NULL;

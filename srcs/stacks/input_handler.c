@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 20:59:43 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 09:49:34 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/30 13:59:06 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,6 @@
 
 void	handle_error(t_error err)
 {
-	if (err == ERR_INVALID_INPUT)
-		ft_putstr_fd("Invalid input\n", 2);
-	else if (err == ERR_OVERFLOW_INPUT)
-		ft_putstr_fd("Overflow int\n", 2);
-	else if (err == ERR_DUPLICATE_INPUT)
-		ft_putstr_fd("Duplicate int\n", 2);
-	else if (err == ERR_ONE_INPUT)
-		ft_putstr_fd("Only one input\n", 2);
-	else if (err == ERR_SORTED)
-		ft_putstr_fd("Sorted array\n", 2);
 	if (err != ERR_OK && err != ERR_SORTED && err != ERR_ONE_INPUT
 		&& err != ERR_DUPLICATE_INPUT)
 	{
