@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 13:10:59 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 13:25:54 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/31 18:34:19 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	float_max(t_psstack *b)
 	}
 }
 
-static void	push_swap2(t_psstack *a, t_psstack *b)
+static void	butter_fly2(t_psstack *a, t_psstack *b)
 {
 	while (b -> size > 0)
 	{
@@ -46,7 +46,7 @@ static void	push_swap2(t_psstack *a, t_psstack *b)
 	}
 }
 
-void	push_swap(t_psstack *a, t_psstack *b)
+static void	butter_fly1(t_psstack *a, t_psstack *b)
 {
 	int	chunk;
 	int	counter;
@@ -71,5 +71,14 @@ void	push_swap(t_psstack *a, t_psstack *b)
 		else
 			ops_ra(a, 0);
 	}
-	push_swap2(a, b);
+	butter_fly2(a, b);
+}
+
+void	push_swap(t_psstack *a, t_psstack *b)
+{
+	if (a -> size > 5)
+	{
+		butter_fly1(a, b);
+		return ;
+	}
 }

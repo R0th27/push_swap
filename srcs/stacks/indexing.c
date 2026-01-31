@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 03:42:42 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 14:55:43 by htoe             ###   ########.fr       */
+/*   Updated: 2026/01/31 17:57:01 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	check_sorted(t_psnode *head)
 {
 	while (head && head -> next)
 	{
-		if (head -> val > head -> next -> val)
+		if (head -> val >= head -> next -> val)
 			return (0);
 		head = head -> next;
 	}
