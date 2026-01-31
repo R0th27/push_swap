@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:36:15 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/31 17:54:20 by htoe             ###   ########.fr       */
+/*   Updated: 2026/02/01 01:10:09 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <stdio.h>
 
 typedef enum e_error
 {
@@ -59,6 +60,8 @@ int			check_sorted(t_psnode *head);
 
 //Algorithm
 void		push_swap(t_psstack *a, t_psstack *b);
+void		butter_fly(t_psstack *a, t_psstack *b, int counter, int chunk);
+void		small_sort(t_psstack *a, t_psstack *b, int size);
 
 //Ops
 void		ops_sa(t_psstack *a, int silent);

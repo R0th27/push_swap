@@ -6,55 +6,43 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 13:10:59 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/31 18:34:19 by htoe             ###   ########.fr       */
+/*   Updated: 2026/02/01 01:17:50 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
 
-static void	float_max(t_psstack *b)
+static void	float_max(t_psstack *b, int max, int max_pos, int pos)
 {
 	t_psnode	*head;
-	int			pos;
 
-	pos = 0;
 	head = b -> top;
-	while (head && head -> index != b -> size - 1)
+	max = head -> index;
+	while (head)
 	{
-		pos++;
+		if (head -> index > max)
+		{
+			max = head -> index;
+			max_pos = pos;
+		}
 		head = head -> next;
+		pos++;
 	}
-	if (pos <= b -> size / 2)
+	if (max_pos <= b -> size / 2)
 	{
-		while (b -> top -> index != b -> size - 1)
+		while (b -> top -> index != max)
 			ops_rb(b, 0);
 	}
 	else
 	{
-		while (b -> top -> index != b -> size - 1)
+		while (b -> top -> index != max)
 			ops_rrb(b, 0);
 	}
 }
 
-static void	butter_fly2(t_psstack *a, t_psstack *b)
+void	butter_fly(t_psstack *a, t_psstack *b, int counter, int chunk)
 {
-	while (b -> size > 0)
-	{
-		float_max(b);
-		ops_pa(b, a, 0);
-	}
-}
-
-static void	butter_fly1(t_psstack *a, t_psstack *b)
-{
-	int	chunk;
-	int	counter;
-
-	chunk = 15;
-	if (a -> size > 110)
-		chunk = 30;
-	counter = 0;
 	while (a -> size > 0)
 	{
 		if (a -> top -> index <= counter)
@@ -71,14 +59,9 @@ static void	butter_fly1(t_psstack *a, t_psstack *b)
 		else
 			ops_ra(a, 0);
 	}
-	butter_fly2(a, b);
-}
-
-void	push_swap(t_psstack *a, t_psstack *b)
-{
-	if (a -> size > 5)
+	while (b -> size > 0)
 	{
-		butter_fly1(a, b);
-		return ;
+		float_max(b, 0, 0, 0);
+		ops_pa(b, a, 0);
 	}
 }
