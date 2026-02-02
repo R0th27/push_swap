@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:36:15 by htoe              #+#    #+#             */
-/*   Updated: 2026/02/01 01:10:09 by htoe             ###   ########.fr       */
+/*   Updated: 2026/02/02 06:28:28 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
-# include <stdio.h>
 
 typedef enum e_error
 {

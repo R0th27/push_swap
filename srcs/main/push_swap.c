@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:39:40 by htoe              #+#    #+#             */
-/*   Updated: 2026/02/01 01:17:55 by htoe             ###   ########.fr       */
+/*   Updated: 2026/02/02 07:36:21 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 static void	handle_error(t_error err)
 {
 	if (err != ERR_OK && err != ERR_SORTED && err != ERR_ONE_INPUT)
-		ft_putstr_fd("Error\n", 2);
+		ft_putstr_fd("Error\n", STDERR_FILENO);
 	if (err == ERR_INVALID_INPUT || err == ERR_OVERFLOW_INPUT)
 		exit(1);
 }
@@ -29,7 +29,7 @@ void	push_swap(t_psstack *a, t_psstack *b)
 	i = 1;
 	while (i <= a -> size / i)
 		i++;
-	chunk = i * 1.6;
+	chunk = (int)(i * 1.6);
 	if (a -> size > 5)
 		butter_fly(a, b, 0, chunk);
 	else

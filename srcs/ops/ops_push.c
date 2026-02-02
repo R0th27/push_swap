@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 07:10:32 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 14:51:45 by htoe             ###   ########.fr       */
+/*   Updated: 2026/02/02 07:36:51 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ void	ops_pa(t_psstack *from, t_psstack *to, int silent)
 {
 	push(from, to);
 	if (!silent)
-		ft_putstr_fd("pa\n", 1);
+		ft_putstr_fd("pa\n", STDOUT_FILENO);
 }
 
 void	ops_pb(t_psstack *from, t_psstack *to, int silent)
 {
 	push(from, to);
 	if (!silent)
-		ft_putstr_fd("pb\n", 1);
+		ft_putstr_fd("pb\n", STDOUT_FILENO);
 }

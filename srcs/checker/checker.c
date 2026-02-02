@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 14:58:54 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/31 17:57:18 by htoe             ###   ########.fr       */
+/*   Updated: 2026/02/02 07:35:46 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 static void	handle_error(t_error err)
 {
 	if (err != ERR_OK && err != ERR_SORTED && err != ERR_ONE_INPUT)
-		ft_putstr_fd("Error\n", 2);
+		ft_putstr_fd("Error\n", STDERR_FILENO);
 	if (err == ERR_INVALID_INPUT || err == ERR_OVERFLOW_INPUT)
 		exit(1);
 }

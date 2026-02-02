@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 07:37:08 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 14:51:50 by htoe             ###   ########.fr       */
+/*   Updated: 2026/02/02 07:37:21 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ void	ops_rra(t_psstack *a, int silent)
 {
 	rrotate(a);
 	if (!silent)
-		ft_putstr_fd("rra\n", 1);
+		ft_putstr_fd("rra\n", STDOUT_FILENO);
 }
 
 void	ops_rrb(t_psstack *b, int silent)
 {
 	rrotate(b);
 	if (!silent)
-		ft_putstr_fd("rrb\n", 1);
+		ft_putstr_fd("rrb\n", STDOUT_FILENO);
 }
 
 void	ops_rrr(t_psstack *a, t_psstack *b, int silent)
@@ -47,5 +47,5 @@ void	ops_rrr(t_psstack *a, t_psstack *b, int silent)
 	ops_rra(a, 1);
 	ops_rrb(b, 1);
 	if (!silent)
-		ft_putstr_fd("rrr\n", 1);
+		ft_putstr_fd("rrr\n", STDOUT_FILENO);
 }
