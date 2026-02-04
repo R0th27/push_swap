@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 14:58:54 by htoe              #+#    #+#             */
-/*   Updated: 2026/02/04 08:45:48 by htoe             ###   ########.fr       */
+/*   Updated: 2026/02/04 08:51:34 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static t_error	stdin_instruction(t_psstack *a, t_psstack *b)
 	{
 		instruction = ft_strtrim(line, "\n ");
 		if (!instruction)
-			return (free(line), ERR_MALLOC);
+			return (free(line), ERR_INVALID_OPS);
 		free(line);
 		len = ft_strlen(instruction) + 1;
 		err = apply_instruction(a, b, instruction, len);
