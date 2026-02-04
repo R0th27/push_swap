@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 14:58:54 by htoe              #+#    #+#             */
-/*   Updated: 2026/02/02 07:35:46 by htoe             ###   ########.fr       */
+/*   Updated: 2026/02/04 08:45:48 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static t_error	stdin_instruction(t_psstack *a, t_psstack *b)
 	size_t	len;
 	t_error	err;
 
-	line = get_next_line(0);
+	line = get_next_line(STDIN_FILENO);
 	while (line)
 	{
 		instruction = ft_strtrim(line, "\n ");
@@ -70,7 +70,7 @@ static t_error	stdin_instruction(t_psstack *a, t_psstack *b)
 		free(instruction);
 		if (err != ERR_OK)
 			return (ERR_INVALID_OPS);
-		line = get_next_line(0);
+		line = get_next_line(STDIN_FILENO);
 	}
 	return (ERR_OK);
 }
