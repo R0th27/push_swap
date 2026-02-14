@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 08:24:04 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/21 01:06:12 by htoe             ###   ########.fr       */
+/*   Updated: 2026/02/14 20:31:55 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,12 +109,30 @@ static t_gnode	*update_cache(t_gnode **head)
 	return (free_gnode(head), node);
 }
 
+/*
+** Function: get_next_line
+** -----------------------
+** Purpose:
+**   Reads from a file descriptor and returns the next line.
+**
+** Parameters:
+**   fd - File descriptor to read from
+**
+** Return:
+**   Newly allocated string containing the next line
+**   NULL on EOF, error, or invalid input
+**
+** Notes:
+**   - Uses static cache to preserve unread data between calls.
+**   - Returned string must be freed by the caller.
+**   - Handles partial reads and leftover buffering.
+*/
 char	*get_next_line(int fd)
 {
 	static t_gnode	*cache;
 	char			*str;
 
-	if (!BUFFER_SIZE)
+	if (fd < 0 || !BUFFER_SIZE)
 		return (NULL);
 	if (!cache || !find_nl(cache -> str))
 		read_to_list(fd, &cache);

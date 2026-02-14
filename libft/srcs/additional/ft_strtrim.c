@@ -6,12 +6,30 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 13:08:50 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/15 13:32:58 by htoe             ###   ########.fr       */
+/*   Updated: 2026/02/14 19:25:22 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+** ft_strtrim
+**
+** Purpose:
+**     Trims characters from the beginning and end of a string.
+**
+** Parameters:
+**     s1  - source string
+**     set - set of characters to remove
+**
+** Returns:
+**     Newly allocated trimmed string.
+**     Returns NULL if allocation fails or if inputs are NULL.
+**
+** Memory:
+**     - Allocates a new string.
+**     - Caller must free it.
+*/
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*nstr;

@@ -6,12 +6,30 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 01:36:59 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/16 01:51:58 by htoe             ###   ########.fr       */
+/*   Updated: 2026/02/14 19:25:30 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+** ft_strmapi
+**
+** Purpose:
+**     Creates a new string by applying a function to each character.
+**
+** Parameters:
+**     s - input string
+**     f - function applied to each character (index, char)
+**
+** Returns:
+**     Newly allocated transformed string.
+**     Returns NULL if allocation fails or if inputs are NULL.
+**
+** Memory:
+**     - Allocates a new string.
+**     - Caller must free it.
+*/
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	unsigned int	index;

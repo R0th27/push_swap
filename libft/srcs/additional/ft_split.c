@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 13:34:18 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 02:37:38 by htoe             ###   ########.fr       */
+/*   Updated: 2026/02/14 19:31:17 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,31 @@ static int	ft_copywords(char **arr, char const *s, char c, size_t word_count)
 	return (1);
 }
 
+/*
+** ft_split
+**
+** Purpose:
+**     Splits a string into an array of strings using a delimiter character.
+**
+** Parameters:
+**     s - input string
+**     c - delimiter character
+**
+** Returns:
+**     A NULL-terminated array of newly allocated strings.
+**     Returns NULL if allocation fails or if s is NULL.
+**
+** Behavior:
+**     - Consecutive delimiters are skipped.
+**     - Empty words are not created.
+**
+** Memory:
+**     - Allocates memory for the array and each substring.
+**     - Caller must free each string and the array itself.
+**
+** Failure behavior:
+**     - Frees all previously allocated substrings before returning NULL.
+*/
 char	**ft_split(char const *s, char c)
 {
 	char	**split;
@@ -72,8 +97,6 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	word_count = ft_countwords(s, c);
-	if (!word_count)
-		return (NULL);
 	split = (char **)malloc(sizeof(char *) * (word_count + 1));
 	if (!split)
 		return (NULL);

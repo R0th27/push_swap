@@ -6,10 +6,25 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 12:19:24 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/14 13:39:25 by htoe             ###   ########.fr       */
+/*   Updated: 2026/02/14 19:39:05 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+** ft_atoi
+**
+** Purpose:
+**     Converts a string to an integer.
+**
+** Returns:
+**     The converted integer value.
+**
+** Notes:
+**     - Skips leading whitespace (space and ASCII 9–13).
+**     - Handles optional '+' or '-' sign.
+**     - Stops conversion at first non-digit character.
+**     - Does not detect integer overflow.
+*/
 int	ft_atoi(const char *nptr)
 {
 	int	sign;

@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 20:59:43 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/30 14:53:00 by htoe             ###   ########.fr       */
+/*   Updated: 2026/02/14 21:02:59 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ static t_error	process_input2(char *str, t_psnode **head)
 	int		num;
 
 	arr = ft_split(str, ' ');
-	if (!arr)
-		return (ERR_INVALID_INPUT);
+	if (!arr || !arr[0])
+		return (free_ps_split(arr), ERR_INVALID_INPUT);
 	size = 0;
 	while (arr[size])
 		size++;

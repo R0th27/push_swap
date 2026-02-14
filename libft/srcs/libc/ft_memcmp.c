@@ -6,12 +6,21 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 11:31:59 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/14 11:43:41 by htoe             ###   ########.fr       */
+/*   Updated: 2026/02/14 19:40:54 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+** ft_memcmp
+**
+** Purpose:
+**     Compares the first n bytes of two memory areas.
+**
+** Returns:
+**     < 0, 0, or > 0 depending on comparison result.
+*/
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	const unsigned char	*str1;

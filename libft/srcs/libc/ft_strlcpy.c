@@ -6,12 +6,24 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 08:02:48 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/14 08:26:50 by htoe             ###   ########.fr       */
+/*   Updated: 2026/02/14 19:42:01 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+** ft_strlcpy
+**
+** Purpose:
+**     Copies src to dest with size limitation.
+**
+** Returns:
+**     Total length of src.
+**
+** Notes:
+**     - Always null-terminates if dsize > 0.
+*/
 size_t	ft_strlcpy(char *dest, const char *src, size_t dsize)
 {
 	size_t	ssize;

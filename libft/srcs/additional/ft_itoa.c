@@ -6,7 +6,7 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 22:33:17 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/16 01:34:30 by htoe             ###   ########.fr       */
+/*   Updated: 2026/02/14 19:18:27 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,28 @@ static void	ft_fillnum(char *str, int *arr, int index, int neg_flag)
 	str[i] = '\0';
 }
 
+/*
+** ft_itoa
+**
+** Purpose:
+**     Converts an integer into a newly allocated null-terminated string.
+**
+** Parameters:
+**     n - integer to convert
+**
+** Returns:
+**     A malloc-allocated string representing the integer.
+**     Returns NULL if allocation fails.
+**
+** Notes:
+**     - Handles negative numbers.
+**     - Handles INT_MIN safely using long conversion.
+**     - Special-cases zero.
+**
+** Memory:
+**     - Allocates a new string.
+**     - Caller is responsible for freeing it.
+*/
 char	*ft_itoa(int n)
 {
 	long	num;

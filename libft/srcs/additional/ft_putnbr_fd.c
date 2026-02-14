@@ -6,12 +6,27 @@
 /*   By: htoe <htoe@student.42bangkok.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 02:13:21 by htoe              #+#    #+#             */
-/*   Updated: 2026/01/16 02:27:59 by htoe             ###   ########.fr       */
+/*   Updated: 2026/02/14 19:24:11 by htoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+** ft_putnbr_fd
+**
+** Purpose:
+**     Writes an integer to the given file descriptor.
+**
+** Parameters:
+**     n  - integer to write
+**     fd - target file descriptor
+**
+** Notes:
+**     - Handles negative numbers.
+**     - Handles INT_MIN safely using long conversion.
+**     - Does not allocate memory.
+*/
 void	ft_putnbr_fd(int n, int fd)
 {
 	long	num;
